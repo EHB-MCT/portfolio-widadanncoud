@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  api:
+    build: ./api
+    ports: 
+      - 3000:3000 
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+    volumes:
+      - ./api/src:/usr/app/api/src
+
+  db: 
+    image: mysql
+    restart: always
+    environment: 
+       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+       MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - 3306:3306
+      
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: ${MYSQL_HOST}
