@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-widadanncoud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EHB-MCT/portfolio-widadanncoud.git"
+  },
+  "author": "Widad Anncoud",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.16.1",
+    "nodemon": "^2.0.20"
+  },
+  "bugs": {
+    "url": "https://github.com/EHB-MCT/portfolio-widadanncoud/issues"
+  },
+  "homepage": "https://github.com/EHB-MCT/portfolio-widadanncoud#readme"
+}
