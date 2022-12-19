@@ -8,12 +8,14 @@ app.set('port', port);
 
 app.use(express.json());
 
+// IMPORT ROUTES
+const homeRouter = require('../routes/home');
+
+// API ROUTES
+app.use('/', homeRouter);
+
 // CREATE SERVER
 var server = http.createServer(app);
-
-app.get("/", async (req, res) => {
-    res.send('Hello Widad')
-})
 
 // LISTEN ON PORT
 server.listen(port, () => {
