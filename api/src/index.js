@@ -11,10 +11,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../views')));
 
 // IMPORT ROUTES
-const homeRouter = require('../routes');
+const indexRouter = require('../routes/index');
+const bpmRouter = require('../routes/bpm');
 
 // API ROUTES
-app.use('/', homeRouter);
+app.use('/', indexRouter);
+app.use('/bpm', bpmRouter);
 
 // CREATE SERVER
 var server = http.createServer(app);
