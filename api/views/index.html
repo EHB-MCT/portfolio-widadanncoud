@@ -141,13 +141,18 @@
 <script>
     function validateForm() {
         let x = document.forms["myForm"]["files"].value;
+
+        // Read file data
+        const fileInput = document.getElementById('files');
+        const file = fileInput.files[0];
+
         if (x == "") {
             alert("YOU MUST ADD A FILE !");
             return false;
         }
 
+        console.log('FILE DATA:', file)
         alert("BPM SAVED !");
-        console.log('Data:', x)
         return true;
     }
 </script>
