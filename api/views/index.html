@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widad portfolio</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    nav {
+        background-color: #333;
+        color: #fff;
+        font-size: 16px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Style the links */
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    /* Add some hover effects */
+    nav a:hover {
+        color: #45a049;
+    }
+
+    main {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    /* Style the input field */
+    form {
+        background-color: #f2f2f2;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    input[type=file] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        cursor: pointer;
+    }
+
+    /* Add some hover effects */
+    input[type=file]:hover {
+        border-color: #999;
+    }
+
+    input[type=date] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+    }
+
+    /* Add some hover effects */
+    input[type=date]:hover {
+        border-color: #999;
+    }
+
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+    }
+
+    /* Add some hover effects */
+    select:hover {
+        border-color: #999;
+    }
+
+    /* Style the label */
+    label {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    /* Add some hover effects */
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+    }
+
+    /* Add some hover effects */
+    textarea:hover {
+        border-color: #999;
+    }
+
+    /* Style the error message */
+    .error {
+        color: red;
+    }
+</style>
+
+<script>
+    function validateForm() {
+        let x = document.forms["myForm"]["files"].value;
+
+        // Read file data
+        const fileInput = document.getElementById('files');
+        const file = fileInput.files[0];
+
+        if (x == "") {
+            alert("YOU MUST ADD A FILE !");
+            return false;
+        }
+
+        console.log('FILE DATA:', file)
+        alert("BPM SAVED !");
+        return true;
+    }
+</script>
+
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="bpm">My BPM's</a>
+    </nav>
+    <main>
+        <h1>Save your BPM's</h1>
+        <form onsubmit="return validateForm()" name="myForm">
+            <label for="files" accept="application/*.xlsx">Select
+                files:</label><br>
+            <input type="file" id="files" name="files" multiple>
+            <label for="date">Select a date:</label><br>
+            <input type="date" id="date" name="date">
+            <label for="time">Select time:</label><br>
+            <select id="time" name="time">
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+            </select>
+            <label for="message">Write a small description of what you where doing:</label><br>
+            <textarea id="message" name="message"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+</body>
+
+</html>
