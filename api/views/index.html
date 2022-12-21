@@ -35,11 +35,15 @@
         color: #45a049;
     }
 
-    /* Style the input field */
-    form {
+    main {
         width: 50%;
         margin: 0 auto;
+    }
+
+    /* Style the input field */
+    form {
         background-color: #f2f2f2;
+        margin-top: 20px;
         padding: 20px;
         border-radius: 5px;
     }
@@ -134,27 +138,45 @@
     }
 </style>
 
+<script>
+    function validateForm() {
+        let x = document.forms["myForm"]["files"].value;
+        if (x == "") {
+            alert("YOU MUST ADD A FILE !");
+            return false;
+        }
+
+        alert("BPM SAVED !");
+        console.log('Data:', x)
+        return true;
+    }
+</script>
+
 <body>
     <nav>
         <a href="/">Home</a> |
         <a href="bpm">My BPM's</a>
     </nav>
-    <form>
-        <label for="files">Select files:</label><br>
-        <input type="file" id="files" name="files" multiple>
-        <label for="date">Select a date:</label><br>
-        <input type="date" id="date" name="date">
-        <label for="time">Select time:</label><br>
-        <select id="time" name="time">
-            <option value="red">Red</option>
-            <option value="green">Green</option>
-            <option value="blue">Blue</option>
-            <option value="yellow">Yellow</option>
-        </select>
-        <label for="message">Write a small description of what you where doing:</label><br>
-        <textarea id="message" name="message"></textarea>
-        <input type="submit" value="Submit">
-    </form>
+    <main>
+        <h1>Save your BPM's</h1>
+        <form onsubmit="return validateForm()" name="myForm">
+            <label for="files" accept="application/*.xlsx">Select
+                files:</label><br>
+            <input type="file" id="files" name="files" multiple>
+            <label for="date">Select a date:</label><br>
+            <input type="date" id="date" name="date">
+            <label for="time">Select time:</label><br>
+            <select id="time" name="time">
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+            </select>
+            <label for="message">Write a small description of what you where doing:</label><br>
+            <textarea id="message" name="message"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </main>
 </body>
 
 </html>
