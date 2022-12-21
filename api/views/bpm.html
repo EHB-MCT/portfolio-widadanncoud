@@ -87,6 +87,16 @@
     }
 </style>
 
+<script>
+    function validateForm() {
+        let value = document.forms["myForm"]["bpm"].value;
+
+        alert(`A BPM OF ${value} HAS BEEN SEND TO RESOLUM !`);
+        console.log('BPM:', value)
+        return true;
+    }
+</script>
+
 <body>
     <nav>
         <a href="/">Home</a> |
@@ -94,7 +104,7 @@
     </nav>
     <main>
         <h1>All my saved BPM's</h1>
-        <form class="card">
+        <form class="card" onsubmit="return validateForm()" name="myForm">
             <div class="title">Card Title</div>
             <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod, ligula
                 a
