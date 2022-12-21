@@ -140,13 +140,13 @@
 
 <script>
     function validateForm() {
-        let x = document.forms["myForm"]["files"].value;
+        let fileValue = document.forms["myForm"]["files"].value;
 
         // Read file data
         const fileInput = document.getElementById('files');
         const file = fileInput.files[0];
 
-        if (x == "") {
+        if (fileValue == "") {
             alert("YOU MUST ADD A FILE !");
             return false;
         }
