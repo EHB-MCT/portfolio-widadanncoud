@@ -24,6 +24,13 @@ npm i mysql2
 npm i nodemon
 npm i jest
 ```
+
+## Endpoints
+Run terminal on the API folder.
+
+[/](http://localhost:3000/) Home route [ GET ]</br>
+[/bpm](http://localhost:3000/bpm/) To see all yout BPM''s [ GET ]</br>
+
 ## Make containers
 Run docker containers
 
