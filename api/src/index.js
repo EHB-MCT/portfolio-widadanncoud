@@ -13,10 +13,12 @@ app.use(express.static(path.join(__dirname, '../views')));
 // IMPORT ROUTES
 const indexRouter = require('../routes/index');
 const bpmRouter = require('../routes/bpm');
+const createBPM = require('../routes/crud/create-bpm');
 
 // API ROUTES
 app.use('/', indexRouter);
 app.use('/bpm', bpmRouter);
+app.use('/creat-bpm', createBPM);
 
 // CREATE SERVER
 var server = http.createServer(app);
