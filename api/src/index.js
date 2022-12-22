@@ -7,10 +7,11 @@ const http = require('http');
 
 const port = process.env.PORT || '3000';
 app.set('port', port);
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../views')));
-app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
     extended: true
   }));

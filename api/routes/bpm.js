@@ -4,7 +4,7 @@ const path = require('path');
 
 /* GET home page. */
 router.get("/", async (req, res) => {
-  res.sendFile('bpm.html', { root: path.join(__dirname, '../views') });
+  res.render('bpm.jsx', { root: path.join(__dirname, '../views') });
 })
 
 module.exports = router;

@@ -13,6 +13,16 @@ services:
     volumes:
       - ./api/src:/usr/app/api/src
 
+  react-ui:
+    build: ./react-frontend
+    ports:
+      - "3001:3001"
+    container_name: react-ui
+    stdin_open: true
+    volumes:
+       - ./react-frontend/src:/usr/app/react-frontend/src
+       - ./react-frontend/src:/usr/app/react-frontend/node_modules
+
   db: 
     image: mysql
     restart: always
