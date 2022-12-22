@@ -48,7 +48,7 @@
         border-radius: 5px;
     }
 
-    input[type=file] {
+    input[type=number] {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -59,12 +59,12 @@
         cursor: pointer;
     }
 
-    /* Add some hover effects */
-    input[type=file]:hover {
+    /* Add some hover effects input[type=file]:hover {
         border-color: #999;
-    }
+    } */
 
-    input[type=date] {
+    input[type=date],
+    input[type=time] {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -76,21 +76,6 @@
 
     /* Add some hover effects */
     input[type=date]:hover {
-        border-color: #999;
-    }
-
-    select {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        background-color: #f8f8f8;
-    }
-
-    /* Add some hover effects */
-    select:hover {
         border-color: #999;
     }
 
@@ -165,20 +150,17 @@
     <main>
         <h1>Save your BPM's</h1>
         <form onsubmit="return validateForm()" name="myForm">
-            <label for="files" accept="application/*.xlsx">Select
-                files:</label><br>
-            <input type="file" id="files" name="files" multiple>
+            <label for="quantity">Enter a bpm:</label><br>
+            <input type="number" id="quantity" name="quantity" min="60" max="150" step="1" value="60" required>
+
             <label for="date">Select a date:</label><br>
-            <input type="date" id="date" name="date">
+            <input type="date" id="date" name="date" required>
+
             <label for="time">Select time:</label><br>
-            <select id="time" name="time">
-                <option value="red">Red</option>
-                <option value="green">Green</option>
-                <option value="blue">Blue</option>
-                <option value="yellow">Yellow</option>
-            </select>
+            <input type="time" id="time" name="time" value="12:00" required>
+
             <label for="message">Write a small description of what you where doing:</label><br>
-            <textarea id="message" name="message"></textarea>
+            <textarea id="message" name="message" required></textarea>
             <input type="submit" value="Submit">
         </form>
     </main>
