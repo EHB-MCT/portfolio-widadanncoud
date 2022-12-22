@@ -88,13 +88,33 @@
 </style>
 
 <script>
-    function validateForm() {
-        let value = document.forms["myForm"]["bpm"].value;
+    async function getData() {
+        try {
+            const response = await fetch('/crud/read-bpm', {
+                method: 'POST'
+            });
+            const data = await response.json();
+            console.log(data);
 
-        alert(`A BPM OF ${value} HAS BEEN SEND TO RESOLUM !`);
-        console.log('BPM:', value)
-        return true;
+            const parentElement = document.getElementById('parent');
+            const childElement = document.createElement('div');
+            childElement.innerHTML = `
+        <div class="card">
+            <div class="title">BPM</div>
+            <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod, ligula
+                a
+                aliquam aliquet, tortor velit ornare diam, id pharetra dui velit eget massa.</div>
+            <i class="heart fa fa-heart"></i>
+            <input type="hidden" name="bpm" value="230">
+            <input type="submit" value="Submit">
+        </div>`;
+            parentElement.appendChild(childElement);
+        } catch (error) {
+            console.error(error);
+        }
     }
+
+    getData();
 </script>
 
 <body>
@@ -102,17 +122,9 @@
         <a href="/">Home</a> |
         <a href="bpm">My BPM's</a>
     </nav>
-    <main>
+    <main id="parent">
         <h1>All my saved BPM's</h1>
-        <form class="card" onsubmit="return validateForm()" name="myForm">
-            <div class="title">Card Title</div>
-            <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod, ligula
-                a
-                aliquam aliquet, tortor velit ornare diam, id pharetra dui velit eget massa.</div>
-            <i class="heart fa fa-heart"></i>
-            <input type="hidden" name="bpm" value="230">
-            <input type="submit" value="Submit">
-        </form>
+
     </main>
 </body>
 

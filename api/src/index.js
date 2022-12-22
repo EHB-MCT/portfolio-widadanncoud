@@ -19,11 +19,13 @@ app.use(bodyParser.urlencoded({
 const indexRouter = require('../routes/index');
 const bpmRouter = require('../routes/bpm');
 const createBPM = require('../routes/crud/create-bpm');
+const getAllBPM = require('../routes/crud/read-bpm');
 
 // API ROUTES
 app.use('/', indexRouter);
 app.use('/bpm', bpmRouter);
 app.use('/crud/create-bpm', createBPM);
+app.use('/crud/read-bpm', getAllBPM);
 
 // CREATE SERVER
 var server = http.createServer(app);

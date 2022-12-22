@@ -2,17 +2,17 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../../database/connection');
 
-/* GET home page. */
 router.post("/", async (req, res) => {
     const {quantity, date, time, message} = req.body
+    const query = 'INSERT INTO bpm (`quantity`, `date`, `time`, `message`) VALUES (?,?,?,?)'
 
-    connection.query('INSERT INTO bpm (`quantity`, `date`, `time`, `message`) VALUES (?,?,?,?)', [quantity, date, time, message],
+    connection.query(query, [quantity, date, time, message],
+
     (error, results) => {
-     if (error) return res.json({ error: error });
+     if (error) return res.send(`error: ${error}`);
         console.log('results:', results)
+        res.send(`A BPM of ${quantity} is created with description ${message}`);
      });
-    
-    res.send(`A BPM of ${quantity} is created`);
 })
   
 module.exports = router;
