@@ -124,22 +124,22 @@
 </style>
 
 <script>
-    function validateForm() {
-        let fileValue = document.forms["myForm"]["files"].value;
+    // const form = document.getElementById('form');
 
-        // Read file data
-        const fileInput = document.getElementById('files');
-        const file = fileInput.files[0];
+    // form.addEventListener('submit', (event) => {
+    //     // Prevent the default submit action
+    //     event.preventDefault();
 
-        if (fileValue == "") {
-            alert("YOU MUST ADD A FILE !");
-            return false;
-        }
+    //     // Get the form data
+    //     const data = new FormData(form);
 
-        console.log('FILE DATA:', file)
-        alert("BPM SAVED !");
-        return true;
-    }
+    //     console.log('data:', data)
+
+    //     // Iterate over the form data
+    //     for (const [name, value] of data) {
+    //         console.log(`${name}: ${value}`);
+    //     }
+    // });
 </script>
 
 <body>
@@ -149,7 +149,7 @@
     </nav>
     <main>
         <h1>Save your BPM's</h1>
-        <form onsubmit="return validateForm()" name="myForm">
+        <form action="/crud/create-bpm" method="POST">
             <label for="quantity">Enter a bpm:</label><br>
             <input type="number" id="quantity" name="quantity" min="60" max="150" step="1" value="60" required>
 
